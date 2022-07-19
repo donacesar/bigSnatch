@@ -1880,20 +1880,3 @@ ul.address li a {
 	  font-size: 0.8em;
 	}
 }
-
-.btn_delPost, .btn_editPost  {
-	margin: 10px;
-	width: 22px;
-	height: 22px;
-	/* display: inline-block; */
-	background-color: red;
-	color: black;
-	border: none;
-	float: right;
-};
-
-.btn_newPost {
-	background-color: red;
-	color: black;
-	border: none;
-};
