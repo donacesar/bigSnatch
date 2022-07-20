@@ -1873,3 +1873,7 @@ ul.address li a {
 	  font-size: 0.8em;
 	}
 }
+
+.form-outline {
+	color: red;
+}

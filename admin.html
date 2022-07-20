@@ -19,7 +19,6 @@
         new WOW().init();
     </script>
 
-
 </head>
 <body>
 <!----- start-header---->
@@ -30,7 +29,6 @@
                 <div class="logo">
                     <!-- <a href="index.html"><h1>Big Snatch</h1></a> -->
                     <a href="blog.html"><h1>BC Big Snatch</h1></a>
-
                 </div>
                 <span class="menu"> </span>
                 <div class="top-menu">
@@ -66,42 +64,38 @@
                                 $(".header-bottom").removeClass("fixed");
                             }
                         });
-
                     });
                 </script>
-                <div class="clearfix"></div>
+                <!-- <div class="clearfix"></div> -->
             </div>
         </div>
     </div>
 </div>
-
 <div class="container">
-    <div class="row single-top">
-        <div class="col-md-3">
-            <a href="#"><input type="submit" class="btn btn-success" value="+ new POST"></a>
-        </div>
-    </div>
     <div class="row single-top">
         <div class="col-md-8">       
             <div class="blog_box">
-                <form action="index.php?page=add_content" method="post" name="form">
-                    <br>
+
+
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="form-outline">
                         <label class="form-label" for="typeText">+ post title...</label>
-                        <input type="text" id="typeText" class="form-control"/>                        
+                        <input type="text" id="typeText" class="form-control" name="postTitle"/>                        
                       </div>
                     <br>
                     <label class="form-label" for="customFile">+ image</label>
-                    <input type="file" class="form-control" id="customFile" />
+                    <input type="file" class="form-control" id="customFile" name="postImg"/>
                     <br>
                     <div class="form-outline">
                         <label class="form-label" for="textAreaExample">+post content...</label>
-                        <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                        <textarea class="form-control" id="textAreaExample" rows="4" name="postContent"></textarea>
                     </div>
                     <br>
                     <a href="#"><input type="submit" class="btn btn-success" value="release post"></a>
                     <br><br><br>
                 </form>		
+
+
                 <div class="blog_grid">
                     <h3 class="wow rollIn animated" data-wow-delay="0.4s"><!-- <a href="single.html">-->Lorem ipsum
                         dolor sit amet, consectetuer adipiscing elit. </a></h3>
@@ -118,7 +112,7 @@
                                 <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
                                 <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a></li>
                             </ul>
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </div>
                     </div>
                 </div>
@@ -140,7 +134,7 @@
                                 <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
                                 <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a></li>
                             </ul>
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </div>
                     </div>
                 </div>
@@ -162,8 +156,7 @@
                                 <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
                                 <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a></li>
 \                            </ul>
-                            <!-- <div class="btn_blog"><a href="single.html"><img src="images/read.png" class="img-responsive" alt="" /></a></div> -->
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </div>
                     </div>
                 </div>
@@ -181,9 +174,8 @@
                 <li><a href="#">20</a></li>
                 <li><a href="#" class="current">Next</a></li>
             </ul>
-        </div>
-       
-        <div class="clearfix"></div>
+        </div>       
+        <!-- <div class="clearfix"></div> -->
     </div>
 </div>
 </div>
@@ -197,33 +189,32 @@
                         <h3>Opening<span class="opening">Hours</span></h3>
                         <li><i class="calender"> </i><span class="week">Monday</span>
                             <div class="hours">h.6:00-h.24:00</div>
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </li>
                         <li><i class="calender"> </i><span class="week">Tuesday</span>
                             <div class="hours">h.6:00-h.24:00</div>
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </li>
                         <li><i class="calender"> </i><span class="week">Wednesday</span>
                             <div class="hours">h.6:00-h.24:00</div>
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </li>
                         <li><i class="calender"> </i><span class="week">Thrusday</span>
                             <div class="hours">h.6:00-h.24:00</div>
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </li>
                         <li><i class="calender"> </i><span class="week">Friday</span>
                             <div class="hours">h.6:00-h.24:00</div>
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </li>
                         <li><i class="calender"> </i><span class="week">Saturday</span>
                             <div class="hours">h.6:00-h.24:00</div>
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </li>
                         <li><i class="calender"> </i><span class="week">Sunday</span>
                             <div class="hours">Closed</div>
-                            <div class="clearfix"></div>
+                            <!-- <div class="clearfix"></div> -->
                         </li>
-
                     </ul>
                 </div>
             </div>
