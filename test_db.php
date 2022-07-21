@@ -1,6 +1,6 @@
 <?php 
 
-$pdo = new PDO("mysql:host=localhost; dbname=bigsnach", "mysql", "mysql" );
+$pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql" );
 
 $statement = $pdo->prepare(("SELECT * FROM posts"));
 $statement->execute();
