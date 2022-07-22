@@ -1,3 +1,12 @@
+<?php
+
+$pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql");
+$statement = $pdo->prepare(("SELECT * FROM posts"));
+$statement->execute();
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+$post = NULL;
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,19 +36,13 @@
         <div class="fixed-header">
             <div class="container">
                 <div class="logo">
-                    <!-- <a href="index.html"><h1>Big Snatch</h1></a> -->
                     <a href="blog.html"><h1>BC Big Snatch</h1></a>
                 </div>
                 <span class="menu"> </span>
                 <div class="top-menu">
                     <nav class="navigation">
                         <ul class="cl-effect-16">
-                            <!-- <li><a href="index.html">Home</a></li> -->
-                            <!-- <li><a href="about.html">About</a></li> -->
-                            <!-- <li><a href="trainers.html">Trainers</a></li> -->
-                            <!-- <li><a href="404.html">Services</a></li> -->
                             <li><a href="blog.php">Blog</a></li>
-                            <!-- <li><a href="contact.html">Contact</a></li> -->
                             <li><a class="active" href="admin.html">Admin</a></li>
                             <ul>
                     </nav>
@@ -76,7 +79,6 @@
         <div class="col-md-8">       
             <div class="blog_box">
 
-
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="form-outline">
                         <label class="form-label" for="typeText">+ post title...</label>
@@ -97,72 +99,28 @@
                     <br><br><br>
                 </form>		
 
-
-                <div class="blog_grid">
-                    <h3 class="wow rollIn animated" data-wow-delay="0.4s"><!-- <a href="single.html">-->Lorem ipsum
-                        dolor sit amet, consectetuer adipiscing elit. </a></h3>
-                    <a href="single.html"><img src="images/blog1.jpg" class="img-responsive" alt=""/></a>
-                    <div class="singe_desc">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                            nostrud exerci tation ullamcorper suscipit lobortis ni obortis nisl ut aliquip obortis nisl
-                            ut aliquip</p>
-                        <div class="comments">
-                            <ul class="links">
-                                <li><i class="blog_icon1"> </i><br><span>April 14, 2014</span></li>
-                                <li><a href="#"><i class="blog_icon3"> </i><br><span>1206</span></a></li>
-                                <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
-                                <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a></li>
-                            </ul>
-                            <!-- <div class="clearfix"></div> -->
+                <? foreach ($posts as $post): ?>
+                <div class="blog_box">
+                    <div class="blog_grid">
+                        <h3 class="wow rollIn animated" data-wow-delay="0.4s"><?= $post['title']; ?></h3>
+                        <img src="<?= $post['image']; ?>" class="img-responsive" alt=""/>
+                        <div class="singe_desc">
+                            <p><?= $post['text']; ?></p>
+                            <div class="comments">
+                                <ul class="links">
+                                    <li>
+                                        <i class="blog_icon1"></i><br><span><?= date('M d, Y', $post['date']); ?></span>
+                                    </li>
+                                    <li><a href="#"><i class="blog_icon3"> </i><br><span><?= $post['likes']; ?></span></a>
+                                    <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
+                                    <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a></li>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="blog_box">
-                <div class="blog_grid">
-                    <h3 class="wow rollIn animated" data-wow-delay="0.4s"><!-- <a href="single.html">-->Lorem ipsum
-                        dolor sit amet, consectetuer adipiscing elit. </a></h3>
-                    <a href="single.html"><img src="images/blog2.jpg" class="img-responsive" alt=""/></a>
-                    <div class="singe_desc">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                            nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                            Duis autem </p>
-                        <div class="comments">
-                            <ul class="links">
-                                <li><i class="blog_icon1"> </i><br><span>April 14, 2014</span></li>
-                                <li><a href="#"><i class="blog_icon3"> </i><br><span>1206</span></a></li>
-                                <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
-                                <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a></li>
-                            </ul>
-                            <!-- <div class="clearfix"></div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blog_box">
-                <div class="blog_grid">
-                    <h3 class="wow rollIn animated" data-wow-delay="0.4s"><!-- <a href="single.html">-->Lorem ipsum
-                        dolor sit amet, consectetuer adipiscing elit. </a></h3>
-                    <a href="single.html"><img src="images/blog3.jpg" class="img-responsive" alt=""/></a>
-                    <div class="singe_desc">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                            nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                            Duis autem </p>
-                        <div class="comments">
-                            <ul class="links">
-                                <li><i class="blog_icon1"> </i><br><span>April 14, 2014</span></li>
-\                                <li><a href="#"><i class="blog_icon3"> </i><br><span>1206</span></a></li>
-                                <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
-                                <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a></li>
-\                            </ul>
-                            <!-- <div class="clearfix"></div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <? endforeach; ?>
             <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated"
                 data-wow-delay="0.4s">
                 <li><a href="#" class="current">Prev</a></li>

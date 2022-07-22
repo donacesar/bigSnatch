@@ -4,7 +4,7 @@ $pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql");
 $statement = $pdo->prepare(("SELECT * FROM posts"));
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+$post = NULL;
 ?>
 
 <!DOCTYPE HTML>
@@ -87,8 +87,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                                     <li>
                                         <i class="blog_icon1"></i><br><span><?= date('M d, Y', $post['date']); ?></span>
                                     </li>
-                                    <li><a href="#"><i
-                                                    class="blog_icon3"> </i><br><span><?= $post['likes']; ?></span></a>
+                                    <li><a href="#"><i class="blog_icon3"> </i><br><span><?= $post['likes']; ?></span></a>
                                     </li>
                                 </ul>
                             </div>
