@@ -1,3 +1,13 @@
+<?php
+$pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql" );
+
+$statement = $pdo->prepare(("SELECT * FROM posts"));
+$statement->execute();
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+$post = $posts[0];
+?>
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,20 +37,13 @@
 			 <div class="fixed-header">
 				<div class="container">
 					<div class="logo">
-						<!-- <a href="index.html"><h1>Big Snatch</h1></a> -->
 						<a href="blog.html"><h1>BC Big Snatch</h1></a>
-
 					</div>
 					<span class="menu"> </span>
 					<div class="top-menu">
 					<nav class="navigation">
 						<ul class="cl-effect-16">
-							<!-- <li><a href="index.html">Home</a></li> -->
-							<!-- <li><a href="about.html">About</a></li> -->
-							<!-- <li><a href="trainers.html">Trainers</a></li> -->
-							<!-- <li><a href="404.html">Services</a></li> -->
 							<li><a class="active" href="blog.php">Blog</a></li>
-							<!-- <li><a href="contact.html">Contact</a></li> -->
 							<li><a href="admin.html">Admin</a></li>
 						<ul>
 					</nav>		
@@ -77,14 +80,15 @@
 		  	   <div class="col-md-8">
 		  	   	<div class="blog_box">
 				 <div class="blog_grid">
-				  <h3 class="wow rollIn animated" data-wow-delay="0.4s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </a></h3> 
-				  <a href=""><img src="images/blog1.jpg" class="img-responsive" alt=""/></a>
+
+				  <h3 class="wow rollIn animated" data-wow-delay="0.4s"><?= $post['title']; ?></h3> 
+				  <img src="<?= $post['image']; ?>" class="img-responsive" alt=""/>
 				  <div class="singe_desc">
-				    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis ni obortis nisl ut aliquip obortis nisl ut aliquip</p>
+				    <p><?= $post['text']; ?></p>
 				     <div class="comments">
 		  				<ul class="links">
-		  					<li><i class="blog_icon1"> </i><br><span>April 14, 2014</span></li>
-		  					<li><a href="#"><i class="blog_icon3"> </i><br><span>1206</span></a></li>
+		  					<li><i class="blog_icon1"></i><br><span><?= date('M d, Y', $post['date']); ?></span></li>
+		  					<li><a href="#"><i class="blog_icon3"> </i><br><span><?= $post['likes']; ?></span></a></li>
 		  				</ul>
 		  		        <!-- <div class="clearfix"></div> -->
 		  		     </div>
@@ -93,14 +97,14 @@
 				</div>
 				<div class="blog_box">
 				 <div class="blog_grid">
-				   <h3 class="wow rollIn animated" data-wow-delay="0.4s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </a></h3>
+				   <h3 class="wow rollIn animated" data-wow-delay="0.4s"><?= $post['title']; ?></h3>
 				  <a href=""><img src="images/blog2.jpg" class="img-responsive" alt=""/></a>
 				  <div class="singe_desc">
-				    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem </p>
-				     <div class="comments">
+					<p><?= $post['text']; ?></p>
+				  	 <div class="comments">
 		  				<ul class="links">
-		  					<li><i class="blog_icon1"> </i><br><span>April 14, 2014</span></li>
-		  					<li><a href="#"><i class="blog_icon3"> </i><br><span>1206</span></a></li>
+		  					<li><i class="blog_icon1"> </i><br><span><?= date('M d, Y', $post['date']); ?></span></li>
+		  					<li><a href="#"><i class="blog_icon3"> </i><br><?= $post['likes']; ?></a></li>
 		  				</ul>
 		  		        <!-- <div class="clearfix"></div> -->
 		  		     </div>
@@ -109,34 +113,20 @@
 				</div>
 				<div class="blog_box">
 				 <div class="blog_grid">
-				  <h3 class="wow rollIn animated" data-wow-delay="0.4s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </a></h3>
+				  <h3 class="wow rollIn animated" data-wow-delay="0.4s"><?= $post['title']; ?></h3>
 				  <a href=""><img src="images/blog3.jpg" class="img-responsive" alt=""/></a>
 				  <div class="singe_desc">
-				    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem </p>
+				  	<p><?= $post['text']; ?></p>
 				     <div class="comments">
 		  				<ul class="links">
-		  					<li><i class="blog_icon1"> </i><br><span>April 14, 2014</span></li>
-		  					<li><a href="#"><i class="blog_icon3"> </i><br><span>1206</span></a></li>
+		  					<li><i class="blog_icon1"> </i><br><span><?= date('M d, Y', $post['date']); ?></span></li>
+		  					<li><a href="#"><i class="blog_icon3"> </i><br><?= $post['likes']; ?></a></li>
 		  				</ul>
-		  		        <!-- <div class="clearfix"></div> -->
 		  		     </div>
 				  </div>
 				 </div>
 				</div>
-				<ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated" data-wow-delay="0.4s">
-				  <li><a href="#" class="current">Prev</a></li>
-				  <li><a href="#">1</a></li>
-				  <li><a href="#">2</a></li>
-				  <li><a href="#">3</a></li>
-				  <li><a href="#">4</a></li>
-				  <li><a href="#">5</a></li>
-				  <li><a href="#">...</a></li>
-				  <li><a href="#">19</a></li>
-				  <li><a href="#">20</a></li>
-				  <li><a href="#" class="current">Next</a></li>
-		       </ul>
 			   </div>			   
-				<!-- <div class="clearfix"></div> -->
 			  </div>
       	</div> 
      </div>
@@ -179,20 +169,17 @@
 								});
 								</script>
 							<!--start-smoth-scrolling-->
-						<script type="text/javascript">
+						<!-- <script type="text/javascript"> 
 									$(document).ready(function() {
-										/*
+										
 										var defaults = {
 								  			containerID: 'toTop', // fading element id
 											containerHoverID: 'toTopHover', // fading element hover id
 											scrollSpeed: 1200,
 											easingType: 'linear' 
 								 		};
-										*/
-										
 										$().UItoTop({ easingType: 'easeOutQuart' });
-										
-									});
+									});-->
 								</script>
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 </body>
