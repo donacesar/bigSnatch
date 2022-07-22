@@ -4,7 +4,7 @@ $pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql");
 $statement = $pdo->prepare(("SELECT * FROM posts"));
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-$post = NULL;
+
 ?>
 
 <!DOCTYPE HTML>
@@ -79,26 +79,26 @@ $post = NULL;
         <div class="col-md-8">       
             <div class="blog_box">
 
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="create_post.php" method="post" enctype="multipart/form-data">
                     <div class="form-outline">
                         <label class="form-label" for="typeText">+ post title...</label>
-                        <input type="text" id="typeText" class="form-control" name="postTitle"/>                        
+                        <input type="text" id="typeText" class="form-control" name="title"/>                        
                       </div>
                     <br>
                     <div class="form-outline">
                         <label class="form-label" for="customFile">+ image</label>
-                    <input type="file" class="form-control" id="customFile" name="postImg"/>
+                    <input type="file" class="form-control" id="customFile" name="image_file"/>
                     </div>
                     <br>
                     <div class="form-outline">
                         <label class="form-label" for="textAreaExample">+post content...</label>
-                        <textarea class="form-control" id="textAreaExample" rows="4" name="postContent"></textarea>
+                        <textarea class="form-control" id="textAreaExample" rows="4" name="content"></textarea>
                     </div>
                     <br>
                     <input type="submit" class="btn btn-success" value="release post">
                     <br><br><br>
                 </form>		
-
+            </div>
                 <? foreach ($posts as $post): ?>
                 <div class="blog_box">
                     <div class="blog_grid">
