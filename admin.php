@@ -36,15 +36,15 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
         <div class="fixed-header">
             <div class="container">
                 <div class="logo">
-                    <a href="blog.html"><h1>BC Big Snatch</h1></a>
+                    <a href="blog.php"><h1>BC Big Snatch</h1></a>
                 </div>
                 <span class="menu"> </span>
                 <div class="top-menu">
                     <nav class="navigation">
                         <ul class="cl-effect-16">
                             <li><a href="blog.php">Blog</a></li>
-                            <li><a class="active" href="admin.html">Admin</a></li>
-                            <ul>
+                            <li><a class="active" href="admin.php">Admin</a></li>
+                        </ul>
                     </nav>
                 </div>
                 <!-- script for menu -->
@@ -76,68 +76,68 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 </div>
 <div class="container">
     <div class="row single-top">
-        <div class="col-md-8">       
+        <div class="col-md-8">
             <div class="blog_box">
 
                 <form action="create_post.php" method="post" enctype="multipart/form-data">
                     <div class="form-outline">
                         <label class="form-label" for="typeText">+ post title...</label>
-                        <input type="text" id="typeText" class="form-control" name="title"/>                        
-                      </div>
+                        <input type="text" id="typeText" class="form-control" name="title"/>
+                    </div>
                     <br>
                     <div class="form-outline">
                         <label class="form-label" for="customFile">+ image</label>
-                    <input type="file" class="form-control" id="customFile" name="image_file"/>
+                        <input type="file" class="form-control" id="customFile" name="image_file"/>
                     </div>
                     <br>
                     <div class="form-outline">
                         <label class="form-label" for="textAreaExample">+post content...</label>
-                        <textarea class="form-control" id="textAreaExample" rows="4" name="content"></textarea>
+                        <textarea class="form-control" id="textAreaExample" rows="4" name="text"></textarea>
                     </div>
                     <br>
                     <input type="submit" class="btn btn-success" value="release post">
                     <br><br><br>
-                </form>		
-            </div>
-                <? foreach ($posts as $post): ?>
-                <div class="blog_box">
-                    <div class="blog_grid">
-                        <h3 class="wow rollIn animated" data-wow-delay="0.4s"><?= $post['title']; ?></h3>
-                        <img src="<?= $post['image']; ?>" class="img-responsive" alt=""/>
-                        <div class="singe_desc">
-                            <p><?= $post['text']; ?></p>
-                            <div class="comments">
-                                <ul class="links">
-                                    <li>
-                                        <i class="blog_icon1"></i><br><span><?= date('M d, Y', $post['date']); ?></span>
-                                    </li>
-                                    <li><a href="#"><i class="blog_icon3"> </i><br><span><?= $post['likes']; ?></span></a>
-                                    <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
-                                    <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a></li>
-                                    </li>
-                                </ul>
+                </form>
+
+                <?php foreach ($posts as $post): ?>
+                    <div class="blog_box">
+                        <div class="blog_grid">
+                            <h3 class="wow rollIn animated" data-wow-delay="0.4s"><?= $post['title']; ?></h3>
+                            <img src="<?= $post['image']; ?>" class="img-responsive" alt=""/>
+                            <div class="singe_desc">
+                                <p><?= $post['text']; ?></p>
+                                <div class="comments">
+                                    <ul class="links">
+                                        <li>
+                                            <i class="blog_icon1"></i><br><span><?= date('M d, Y', $post['date']); ?></span>
+                                        </li>
+                                        <li><a href="#"><i class="blog_icon3"> </i><br><span><?= (int)($post['likes']); ?></span></a>
+                                        <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
+                                        <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <? endforeach; ?>
-            <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated"
-                data-wow-delay="0.4s">
-                <li><a href="#" class="current">Prev</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">19</a></li>
-                <li><a href="#">20</a></li>
-                <li><a href="#" class="current">Next</a></li>
-            </ul>
-        </div>       
-        <!-- <div class="clearfix"></div> -->
+                <?php endforeach; ?>
+                <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated"
+                    data-wow-delay="0.4s">
+                    <li><a href="#" class="current">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">19</a></li>
+                    <li><a href="#">20</a></li>
+                    <li><a href="#" class="current">Next</a></li>
+                </ul>
+            </div>
+            <!-- <div class="clearfix"></div> -->
+        </div>
     </div>
-</div>
 </div>
 <!----footer--->
 <div class="footer">
@@ -182,7 +182,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <h3>contact<span class="opening">info</span></h3>
                 <ul class="address">
                     <li>123, new street, 129907 London</li>
-                    <li>023 456 23456</li>                    
+                    <li>023 456 23456</li>
                 </ul>
             </div>
             <div class="clearfix"></div>
