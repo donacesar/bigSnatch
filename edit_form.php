@@ -1,3 +1,12 @@
+<?php
+
+$pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql");
+$statement = $pdo->prepare(("SELECT * FROM posts"));
+$statement->execute();
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,17 +23,17 @@
     <form action="" method="post" enctype="multipart/form-data">
         <div class="form-outline">
             <label class="form-label" for="typeText">+ post title...</label>
-            <input type="text" id="typeText" class="form-control" name="title"/>
+            <input type="text" required="required" id="typeText" class="form-control" name="title"/>
           </div>
         <br>
         <div class="form-outline">
         <label class="form-label" for="customFile">+ image</label>
-        <input type="file" class="form-control" id="customFile" name="image_file"/>
+        <input type="file" required="required" class="form-control" id="customFile" name="image_file"/>
     </div>
         <br>
         <div class="form-outline">
             <label class="form-label" for="textAreaExample">+post content...</label>
-            <textarea class="form-control" id="textAreaExample" rows="4" name="text"></textarea>
+            <textarea required="required" class="form-control" id="textAreaExample" rows="4" name="text"></textarea>
         </div>
         <br>
         <input type="submit" class="btn btn-success" value="release post">

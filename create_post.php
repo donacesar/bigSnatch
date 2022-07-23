@@ -20,7 +20,7 @@ $image = 'images/' . $name;
 $text = $_POST['text'];
 $date = time();
 
-// добавлем в базу
+// добавляем в базу
 $pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql");
 $statement = $pdo->prepare("INSERT INTO posts (title, image, text, date) VALUES (:title, :image, :text, :date)");
 $statement->execute(['title' => $title, 'image' => $image, 'text' => $text, 'date' => $date]);
