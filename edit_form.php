@@ -1,11 +1,13 @@
 <?php
 
+$id = $_GET['id'];
+// var_dump($id);
 $pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql");
-$statement = $pdo->prepare(("SELECT * FROM posts"));
-$statement->execute();
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-// $id = $_GET SELECT id WHERE id = :id;
-var_dump($_GET); die;
+$statement = $pdo->prepare("SELECT * FROM posts WHERE id = :id");
+$statement->execute(['id' => $id]);
+// $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+$post = $statement->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -21,24 +23,24 @@ var_dump($_GET); die;
 <body>
     <div class="col-md-8">       
             <div class="blog_box">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="edit_post.php" method="post" enctype="multipart/form-data">
         <div class="form-outline">
             <label class="form-label" for="typeText">+ post title...</label>            
-            <input type="text" required="required" id="typeText" class="form-control" name="title" value="<?= $posts[0]['title']?>"/>
+            <input type="text" required="required" id="typeText" class="form-control" name="title" value="<?= $post['title']?>"/>
         </div>
         <br>
         <div class="form-outline">
         <label class="form-label" for="customFile">+ image</label>
-        <img src="<?= $posts[0]['image']; ?>" class="img-responsive-edit" alt=""/>
+        <img src="<?= $post['image']; ?>" class="img-responsive-edit" alt=""/>
         <input type="file" required="required" id="customFile" name="image_file" >
     </div>
         <br>
         <div class="form-outline">
             <label class="form-label" for="textAreaExample">+post content...</label>
-            <textarea required="required" class="form-control" id="textAreaExample" rows="4" name="text"><?= $posts[0]['text']?></textarea>
+            <textarea required="required" class="form-control" id="textAreaExample" rows="4" name="text"><?= $post['text']?></textarea>
         </div>
         <br>
-        <input type="hidden" name="id" value="<?=$posts?>">
+        <input type="hidden" name="id" value="<?=$post['id']?>">
         <input href="edit_form.php" type="submit" class="btn btn-success" value="release post">
     </form>	
     </div>
