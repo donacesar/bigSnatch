@@ -5,6 +5,7 @@ $statement = $pdo->prepare(("SELECT * FROM posts"));
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
 ?>
 
 <!DOCTYPE HTML>
@@ -87,7 +88,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <br>
                     <div class="form-outline">
                         <label class="form-label" for="customFile">+ image</label>
-                        <input type="file" required="required" class="form-control" id="customFile" name="image_file"/>
+                        <input type="file" required="required" id="customFile" name="image_file"/>
                     </div>
                     <br>
                     <div class="form-outline">
@@ -112,7 +113,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                                             <i class="blog_icon1"></i><br><span><?= date('M d, Y', $post['date']); ?></span>
                                         </li>
                                         <li><a href="#"><i class="blog_icon3"> </i><br><span><?= (int)($post['likes']); ?></span></a>
-                                        <li><a href="#"><input type="submit" class="btn btn-info" value="Edit"></a></li>
+                                        <li><a href="edit_form.php?id=<?=$post['id']; ?>"><input type="submit" class="btn btn-info" value="Edit"></a></li>
                                         <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a>
                                         </li>
                                     </ul>

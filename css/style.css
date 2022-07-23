@@ -1877,3 +1877,8 @@ ul.address li a {
 .form-outline {
 	color: red;
 }
+.img-responsive-edit{
+	display: block;
+	max-width: 50%;
+	height: auto;
+}
