@@ -1,14 +1,14 @@
 <?php
 
 $pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql");
-$statement = $pdo->prepare(("SELECT * FROM posts"));
+$statement = $pdo->prepare(("SELECT * FROM posts ORDER BY id DESC"));
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
     <title>Big Snatch</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,7 +35,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
         <div class="fixed-header">
             <div class="container">
                 <div class="logo">
-                    <a href="blog.html"><h1>BC Big Snatch</h1></a>
+                    <a href="blog.php"><h1>BC Big Snatch</h1></a>
                 </div>
                 <span class="menu"> </span>
                 <div class="top-menu">
