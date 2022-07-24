@@ -107,17 +107,15 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                             <img src="<?= $post['image']; ?>" class="img-responsive" alt=""/>
                             <div class="singe_desc">
                                 <p><?= $post['text']; ?></p>
-                                <div class="comments">
                                     <ul class="links">
                                         <li>
                                             <i class="blog_icon1"></i><br><span><?= date('M d, Y', $post['date']); ?></span>
                                         </li>
                                         <li><a href="#"><i class="blog_icon3"> </i><br><span><?= (int)($post['likes']); ?></span></a>
                                         <li><a href="edit_form.php?id=<?=$post['id']; ?>"><input type="submit" class="btn btn-info" value="Edit"></a></li>
-                                        <li><a href="#"><input type="submit" class="btn btn-danger" value="Delete"></a>
+                                        <li><a href="delete_post.php?id=<?=$post['id']; ?>"><input type="submit" class="btn btn-danger" value="Delete"></a>
                                         </li>
                                     </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
