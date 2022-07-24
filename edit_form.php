@@ -1,11 +1,9 @@
 <?php
 
 $id = $_GET['id'];
-// var_dump($id);
 $pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql");
 $statement = $pdo->prepare("SELECT * FROM posts WHERE id = :id");
 $statement->execute(['id' => $id]);
-// $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 $post = $statement->fetch(PDO::FETCH_ASSOC);
 
 ?>
@@ -32,7 +30,7 @@ $post = $statement->fetch(PDO::FETCH_ASSOC);
         <div class="form-outline">
         <label class="form-label" for="customFile">+ image</label>
         <img src="<?= $post['image']; ?>" class="img-responsive-edit" alt=""/>
-        <input type="file" required="required" id="customFile" name="image_file" >
+        <input type="file" id="customFile" name="image_file" >
     </div>
         <br>
         <div class="form-outline">
@@ -41,6 +39,7 @@ $post = $statement->fetch(PDO::FETCH_ASSOC);
         </div>
         <br>
         <input type="hidden" name="id" value="<?=$post['id']?>">
+        <input type="hidden" name="old_image" value="<?= $post['image']; ?>">
         <input href="edit_form.php" type="submit" class="btn btn-success" value="release post">
     </form>	
     </div>
