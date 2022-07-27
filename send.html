@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Посылаем данные</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+<button class="send">Нажимай</button>
+<div id="likes">
+
+</div>
+
+
+</body>
+
+
+<script>
+    $(document).ready(function () {
+        $('button.send').on('click', function () {
+            $.ajax({
+                method: "POST",
+                url: "return.php",
+                data: {like: "+", id: "10"}
+            })
+                .done(function (likes) {
+                    console.log("Likes " + likes)
+                    $("#likes").text("Likes " + likes);
+                });
+        })
+    });
+</script>
+</html>
