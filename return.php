@@ -1,5 +1,6 @@
 <?php
 
+
 $id = $_POST['id'];
 $pdo = new PDO("mysql:host=localhost; dbname=bigsnatch", "mysql", "mysql");
 $statement = $pdo->prepare("SELECT * FROM posts WHERE id = :id");
