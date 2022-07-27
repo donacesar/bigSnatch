@@ -22,7 +22,7 @@
             $.ajax({
                 method: "POST",
                 url: "return.php",
-                data: {like: "+", id: "10"}
+                data: {id: "<?= $post['id'];?>"}
             })
                 .done(function (likes) {
                     console.log("Likes " + likes)
